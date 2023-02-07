@@ -7,18 +7,12 @@ export default class fractal {
 		this.y = y;
 		this.side = side;
 		this.rotation = rotation;
-		this.rotationSpeed = randInt(-20,20)/10;
+		this.rotationSpeed = randInt(-10,10)/10+0.05;
 		this.dockpoints = new dockpoints(this.x, this.y, this.side)
-		// this.speedX = randInt(2,8)/10;
-		// this.speedY = randInt(2,8)/10;
 	}
 
 	tick() {
 		this.rotation += this.rotationSpeed;
-		// this.x += 1;
-		// this.dockpoints.tick(this.x, this.y)
-		// this.x += this.speedX;
-		// this.y += this.speedY;
 	}
 
 	plot(ctx) {

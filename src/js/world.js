@@ -6,6 +6,9 @@ class world {
 		this.init = false;
 		this.paused = true;
 		this.objects = [];
+		this.nrOfFractals = 1;
+		this.fractalSizeMin = 200;
+		this.fractalSizeMax = 300;
 	}
 
 	doInit() {
@@ -13,16 +16,19 @@ class world {
 		this.ctx = this.canvas.getContext('2d');
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
-		for (let i = 0; i < randInt(1,7); i++) {
+		for (let i = 0; i < randInt(1,this.nrOfFractals); i++) {
 			this.populate();
 		};
 		this.init = true;
 	};
 
 	populate() {
-		const size = randInt(20,300);
-		const x = randInt(size * 1.5, this.canvas.width - size * 1.5);
-		const y = randInt(size * 1.5, this.canvas.height - size * 1.5);
+		const size = randInt(this.fractalSizeMin, this.fractalSizeMax);
+		// Use the two rows below for random positions instead of a centered position
+		// const x = randInt(size * 1.5, this.canvas.width - size * 1.5);
+		// const y = randInt(size * 1.5, this.canvas.height - size * 1.5);
+		const x = this.canvas.width / 2 - size/2;
+		const y = this.canvas.height / 2 - size/2;
 		this.objects.push(new fractal(x,y,size,0))
 	}
 

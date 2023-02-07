@@ -41,11 +41,6 @@ export class dockpoints {
         }
     }
 
-    // tick(x,y) {
-    //     this.parentX = x;
-    //     this.parentY = y;
-    // }
-
     plot(ctx) {
         this.members.forEach(member => member.plot(ctx))
     }
